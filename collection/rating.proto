@@ -1,5 +1,5 @@
 syntax = "proto3";
-package timebank.servicerating;
+package timebank.rating;
 
 service Rating {
     rpc createForRequestor (Create.Request) returns (Create.Response);

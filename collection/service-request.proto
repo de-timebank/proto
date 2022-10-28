@@ -143,7 +143,7 @@ message GetRating {
     }
 
     message Response {
-        timebank.servicerating.RatingData rating = 1;
+        timebank.rating.RatingData rating = 1;
     }
 }
 
