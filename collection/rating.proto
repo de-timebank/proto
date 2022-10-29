@@ -4,7 +4,7 @@ package timebank.rating;
 service Rating {
     rpc createForRequestor (Create.Request) returns (Create.Response);
     rpc createForProvider (Create.Request) returns (Create.Response);
-    rpc getBy (GetBy.Request) returns (GetBy.Response);
+    rpc get (GetBy.Request) returns (GetBy.Response);
     rpc update (Update.Request) returns (Update.Response);
     rpc delete (Delete.Request) returns (Delete.Response);
 }
@@ -37,7 +37,7 @@ message Create {
     }
 }
 
-message GetBy {
+message Get {
     message Request {
         string column = 1;
         string filter = 2;
