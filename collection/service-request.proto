@@ -11,7 +11,6 @@ service ServiceRequest {
     rpc delete (Delete.Request) returns (Delete.Response);
     rpc applyProvider (ApplyProvider.Request) returns (ApplyProvider.Response);
     rpc selectProvider (SelectProvider.Request) returns (SelectProvider.Response);
-    rpc getRating (GetRating.Request) returns (GetRating.Response);
     rpc completeService (CompleteService.Request) returns (CompleteService.Response);
     rpc getCommitment (GetCommitment.Request) returns (GetCommitment.Response);
 }
@@ -51,7 +50,7 @@ message ServiceRequestData {
     repeated string applicants = 9;
     string created_at = 10;
     string updated_at = 11;
-    string completed_at = 12;
+    optional string completed_at = 12;
 } 
 
 message Create {
@@ -83,8 +82,8 @@ message Delete {
 
 message Get {
     message Request {
-        string column = 1;
-        string filter = 2;
+        string key = 1;
+        string value = 2;
     }
     
     message Response {
@@ -110,16 +109,6 @@ message Update {
 
     message Response {
         ServiceRequestData request = 1;
-    }
-}
-
-message GetRating {
-    message Request {
-        string request_id = 1;
-    }
-
-    message Response {
-        timebank.rating.RatingData rating = 1;
     }
 }
 
@@ -164,6 +153,7 @@ message SelectProvider {
     message Request {
         string request_id = 1;
         string provider = 2;
+        string caller = 3;
     }
 
     message Response {
