@@ -1,10 +1,11 @@
 syntax = "proto3";
-package account;
+package timebank.user;
 
 import "collection/rating.proto";
 
 service User {
     rpc get (Get.Request) returns (Get.Response);
+    rpc getById (GetById.Request) returns (GetById.Response);
     rpc update (Update.Request) returns (Update.Response);
     rpc getRating (GetRating.Request) returns (GetRating.Response);
 }
@@ -14,7 +15,7 @@ message Contact {
     string address = 2;
 }
 
-message TUserProfile {
+message UserProfile {
     string user_id = 1;
     string name = 2;
     repeated string skills = 3;
@@ -24,44 +25,44 @@ message TUserProfile {
 }
 
 message Get {
-    message Payload {
-        string user_id = 1;
-    }
-
     message Request {
-        Payload payload = 1;
+        string key = 1;
+        string value = 2;
     }
 
     message Response {
-        TUserProfile user = 1;
+        repeated UserProfile users = 1;
+    }
+}
+
+message GetById {
+    message Request {
+        string user_id = 1;
+    }
+
+    message Response {
+        UserProfile user = 1;
     }
 }
 
 message Update {
-    message Payload {
-        string user_id = 1;
-        string update = 2;
-    }
-
     message Request {
-        Payload payload = 1;
+        string user_id = 1;
+        string body = 2;
     }
 
     message Response {
-        TUserProfile user = 1;
+        UserProfile user = 1;
     }
 }
 
 message GetRating {
-    message Payload {
+    message Request {
         string user_id = 1;
     }
 
-    message Request {
-        Payload payload = 1;
-    }
-
     message Response {
-        repeated timebank.rating.RatingData ratings = 1;
+        int32 average = 1;
+        repeated timebank.rating.RatingData ratings = 2;
     }
 }
