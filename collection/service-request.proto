@@ -112,6 +112,8 @@ message GetById {
 
     message Response {
         ServiceRequestData request = 1;
+        timebank.user.UserProfile requestor = 2;
+        timebank.user.UserProfile provider = 3;
     }
 }
 
