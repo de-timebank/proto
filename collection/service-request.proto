@@ -3,6 +3,7 @@ package timebank.servicerequest;
 
 import "misc.proto";
 import "collection/rating.proto";
+import "user.proto";
 
 service ServiceRequest {
     rpc create (Create.Request) returns (Create.Response);
