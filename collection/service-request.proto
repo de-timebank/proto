@@ -16,7 +16,6 @@ service ServiceRequest {
     rpc selectProvider (SelectProvider.Request) returns (SelectProvider.Response);
     rpc startService (StartService.Request) returns (StartService.Response);
     rpc completeService (CompleteService.Request) returns (CompleteService.Response);
-    rpc getCommitment (GetCommitment.Request) returns (GetCommitment.Response);
 }
 
 message ServiceRequestData {    
@@ -138,23 +137,6 @@ message CompleteService {
     }
 
     message Response {
-    }
-}
-
-message ServiceCommitmentData {
-    string requestor = 1;
-    string provider = 2;
-    uint32 amount = 3;
-    bool is_completed = 4;   
-}
-
-message GetCommitment {
-    message Request {
-        string request_id = 1;
-    }
-
-    message Response {
-        ServiceCommitmentData commitment = 1;
     }
 }
 
