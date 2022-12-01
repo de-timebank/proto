@@ -6,6 +6,7 @@ import "collection/rating.proto";
 service User {
     rpc get (Get.Request) returns (Get.Response);
     rpc getById (GetById.Request) returns (GetById.Response);
+    rpc getProfile (GetProfile.Request) returns (GetProfile.Response);
     rpc update (Update.Request) returns (Update.Response);
     rpc getRating (GetRating.Request) returns (GetRating.Response);
     rpc getCreditBalance (GetCreditBalance.Request) returns (GetCreditBalance.Response);
@@ -97,5 +98,32 @@ message GetCreditBalance {
 
     message Response {
         uint64 balance = 1;
+    }
+}
+
+message ProfileSummary {
+    message RatingSummary {
+        int32 count = 1;
+        // `avg` can sometimes be returned null from the db
+        //  because it might be evaluating the average of 0 item(s)
+        optional float avg = 2;
+    }
+
+    message Rating {
+        RatingSummary as_provider = 1;
+        RatingSummary as_requestor = 2;
+    }
+
+    UserProfile profile = 1;
+    Rating rating = 2;
+}
+
+message GetProfile {
+    message Request {
+        string user_id = 1;
+    }
+
+    message Response {
+        ProfileSummary user = 1;
     }
 }
