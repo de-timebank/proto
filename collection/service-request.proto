@@ -52,18 +52,19 @@ message ServiceRequestData {
     optional string provider = 3;
     Location location = 4;
     State state = 5;
-    Details details = 6;
-    repeated string media_attachments = 7;
-    float rate = 8;
-    repeated string applicants = 9;
-    string created_at = 10;
-    string updated_at = 11;
-    optional string completed_at = 12;
-    string category = 13;
-    string started_at = 14;
-    float time_limit = 15;
-    optional float actual_payment = 16;
-    string date = 17;
+    string title = 6;
+    string description = 7;
+    repeated string media_attachments = 8;
+    float rate = 9;
+    repeated string applicants = 10;
+    string created_at = 11;
+    string updated_at = 12;
+    optional string completed_at = 13;
+    string category = 14;
+    string started_at = 15;
+    float time_limit = 16;
+    optional float actual_payment = 17;
+    string date = 18;
 } 
 
 message Create {
