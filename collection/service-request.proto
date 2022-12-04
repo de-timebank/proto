@@ -9,6 +9,7 @@ service ServiceRequest {
     rpc create (Create.Request) returns (Create.Response);
     rpc get (Get.Request) returns (Get.Response);
     rpc getById (GetById.Request) returns (GetById.Response);
+    // allow to filter by location, category, etc.
     rpc getAvailable (GetAvailable.Request) returns (GetAvailable.Response);
     rpc update (Update.Request) returns (Update.Response);
     rpc delete (Delete.Request) returns (Delete.Response);
@@ -165,6 +166,7 @@ message SelectProvider {
 message GetAvailable {
     message Request {
         misc.Filter filter = 1;
+        misc.Page page = 2;
     }
 
     message Response {

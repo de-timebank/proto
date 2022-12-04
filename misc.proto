@@ -5,3 +5,13 @@ message Filter {
     string by = 1;
     string value = 2;
 }
+
+message Page {
+    int32 limit = 1;
+    int32 offset = 2;
+}
+
+message PageInfo {
+    bool has_next = 1;
+    int32 page_no = 2;
+}
