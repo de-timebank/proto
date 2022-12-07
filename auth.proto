@@ -11,7 +11,7 @@ message SignUp {
     message Request {
         string email = 1;
         string password = 2;
-        timebank.user.NewUserProfile profile = 3;
+        user.NewUserProfile profile = 3;
     }
 
     message Response {

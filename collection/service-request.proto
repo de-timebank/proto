@@ -1,5 +1,5 @@
 syntax = "proto3";
-package timebank.servicerequest;
+package servicerequest;
 
 import "misc.proto";
 import "collection/rating.proto";
@@ -117,8 +117,8 @@ message GetById {
 
     message Response {
         ServiceRequestData request = 1;
-        timebank.user.UserProfile requestor = 2;
-        timebank.user.UserProfile provider = 3;
+        user.UserProfile requestor = 2;
+        user.UserProfile provider = 3;
     }
 }
 

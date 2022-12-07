@@ -1,5 +1,5 @@
 syntax = "proto3";
-package timebank.user;
+package user;
 
 import "collection/rating.proto";
 
@@ -87,7 +87,7 @@ message GetRating {
 
     message Response {
         int32 average = 1;
-        repeated timebank.rating.RatingData ratings = 2;
+        repeated rating.RatingData ratings = 2;
     }
 }
 
