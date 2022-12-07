@@ -17,6 +17,7 @@ service ServiceRequest {
     rpc selectProvider (SelectProvider.Request) returns (SelectProvider.Response);
     rpc startService (StartService.Request) returns (StartService.Response);
     rpc completeService (CompleteService.Request) returns (CompleteService.Response);
+    rpc getSummaryForUser (GetSummaryForUser.Request) returns (GetSummaryForUser.Response);
 }
 
 message ServiceRequestData {    
@@ -181,5 +182,23 @@ message StartService {
     }
 
     message Response {
+    }
+}
+
+message GetSummaryForUser {
+    message SummaryCount {
+        int32 as_requestor = 1;
+        int32 as_provider = 2;
+    }
+
+    message Request {   
+        string user_id = 1;
+    }
+
+    message Response {
+        SummaryCount pending = 1;
+        SummaryCount accepted = 2;
+        SummaryCount ongoing = 3;
+        SummaryCount completed = 4;
     }
 }
