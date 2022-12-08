@@ -52,6 +52,7 @@ message Update {
     message Request {
         string request_id = 1;
         string rating_for = 2;
+        string body = 3;
     }
 
     message Response {
