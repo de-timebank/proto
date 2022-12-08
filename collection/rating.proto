@@ -10,15 +10,15 @@ service Rating {
 }
 
 message RatingData {
-    string id = 1;
-    string author = 2;
-    string recipient = 3;
-    int32 value = 4;
-    string comment = 5;
-    string created_at = 6;
-    string updated_at = 7;
-    string request_id = 8;
-    string rating_for = 9;
+    //string id = 1;
+    string author = 1;
+    string recipient = 2;
+    int32 value = 3;
+    string comment = 4;
+    string created_at = 5;
+    string updated_at = 6;
+    string request_id = 7;
+    string rating_for = 8;
 }
 
 message Create {
@@ -51,8 +51,8 @@ message Get {
 
 message Update {
     message Request {
-        string rating_id = 1;
-        string body = 2;
+        string request_id = 1;
+        string rating_for = 2;
     }
 
     message Response {
@@ -62,7 +62,8 @@ message Update {
 
 message Delete {
     message Request {
-        string rating_id = 1;
+        string request_id = 1;
+        string rating_for = 2;
     }
 
     message Response {
