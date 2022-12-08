@@ -4,6 +4,7 @@ package rating;
 service Rating {
     rpc createForRequestor (Create.Request) returns (Create.Response);
     rpc createForProvider (Create.Request) returns (Create.Response);
+    rpc get (Get.Request) returns (Get.Response);
     rpc getForRequest (GetForRequest.Request) returns (GetForRequest.Response);
     rpc getById (GetById.Request) returns (GetById.Response);
     rpc update (Update.Request) returns (Update.Response);
@@ -78,5 +79,16 @@ message GetById {
 
     message Response {
         RatingData rating = 1;
+    }
+}
+
+message Get {
+    message Request {
+        string key = 1;
+        string value = 2;
+    }
+
+    message Response {
+        repeated RatingData ratings = 1;
     }
 }
