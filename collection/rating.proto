@@ -50,8 +50,8 @@ message GetForRequest {
 
 message Update {
     message Request {
-        string rating_id = 1;
-        string body = 2;
+        string request_id = 1;
+        string rating_for = 2;
     }
 
     message Response {
@@ -61,7 +61,8 @@ message Update {
 
 message Delete {
     message Request {
-        string rating_id = 1;
+        string request_id = 1;
+        string rating_for = 2;
     }
 
     message Response {
