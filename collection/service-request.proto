@@ -164,7 +164,7 @@ message SelectProvider {
 message GetAvailable {
     message Request {
         misc.Filter filter = 1;
-        misc.Page page = 2;
+        misc.Range range = 2;
     }
 
     message Response {
