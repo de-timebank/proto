@@ -10,6 +10,7 @@ service User {
     rpc update (Update.Request) returns (Update.Response);
     rpc getRating (GetRating.Request) returns (GetRating.Response);
     rpc getCreditBalance (GetCreditBalance.Request) returns (GetCreditBalance.Response);
+    rpc getTransactionHistory (GetTransactionHistory.Request) returns (GetTransactionHistory.Response);
 }
 
 message ProfileImage {
@@ -126,5 +127,23 @@ message GetProfile {
 
     message Response {
         ProfileSummary user = 1;
+    }
+}
+
+message CreditTransaction {
+    string request_id = 1;
+    string from = 2;
+    string to = 3;
+    float amount = 4;
+    string timestamp = 5;
+}
+
+message GetTransactionHistory {
+    message Request {
+        string user_id = 1;
+    }
+
+    message Response {
+        repeated CreditTransaction data = 1;
     }
 }
