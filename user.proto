@@ -108,9 +108,7 @@ message ProfileSummary {
         int32 count = 1;
         // `avg` can sometimes be returned null from the db
         //  because it might be evaluating the average of 0 item(s)
-        oneof average {
-            float avg = 2;
-        }
+        optional float avg = 2;
     }
 
     message Rating {
