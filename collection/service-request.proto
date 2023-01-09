@@ -42,7 +42,11 @@ message ServiceRequestData {
 
     string id = 1;
     string requestor = 2;
-    string provider = 3;
+
+    oneof request_provider {
+        string provider = 3;
+    }
+
     Location location = 4;
     State state = 5;
     string title = 6;
@@ -52,11 +56,19 @@ message ServiceRequestData {
     repeated string applicants = 10;
     string created_at = 11;
     string updated_at = 12;
-    string completed_at = 13;
+
+    oneof request_completed_timestamp {
+        string completed_at = 13;
+    }
+
     string category = 14;
     string started_at = 15;
     float time_limit = 16;
-    float actual_payment = 17;
+
+    oneof request_payment {
+        float actual_payment = 17;
+    }
+
     string date = 18;
 } 
 
